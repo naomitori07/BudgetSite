@@ -1,0 +1,14 @@
+{% extends 'expense/base.html' %}
+
+{% block content %}
+    <div class="post">
+        {% if expense.published_date %}
+            <div class="date">
+                {{ expense.date }}
+            </div>
+        {% endif %}
+        <a class="btn btn-default" href="{% url 'expense_edit' pk=expense.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        <h1>{{ expense.title }}</h1>
+        <p>{{ expense.category|linebreaksbr }}</p>
+    </div>
+{% endblock %}

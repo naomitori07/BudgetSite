@@ -1,9 +1,11 @@
-<html>
-    <head>
-        <title>Budget</title>
-    </head>
-    <body>
-        <p>Hi there!</p>
-        <p>It works!</p>
-    </body>
-</html>
+{% extends 'expense/base.html' %}
+
+{% block content %}
+    {% for expense in expenses %}
+        <div>
+            <p>date: {{ expense.date }}</p>
+            <h1><a href="{% url 'expense_detail' pk=expense.pk %}">{{ expense.title }}</a></h1>
+            <p>{{ expense.category|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}
